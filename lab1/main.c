@@ -69,7 +69,7 @@ int main(void)
 		    if(signal(SIGUSR2, my_func) == SIG_ERR)
 		        printf("Can't catch SIGUSR2.\n");
 
-		    char buf[50];
+		    char buf[50] = {0};
 		    while(1)
 		    {
 		    	if(read(pipefd[0], buf, sizeof(buf)) == -1)
