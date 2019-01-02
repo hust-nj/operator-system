@@ -82,13 +82,16 @@ void printtime(time_t t)
 
 void printinfo(const char *name, const struct stat *statbuf)
 {
+	printf("%s ", name);//打印文件名
 	printmod(statbuf->st_mode);//打印模式
 	printf(" %lu", statbuf->st_nlink);//打印硬链接数
 	printuser(statbuf->st_uid);//打印用户名
 	printgroup(statbuf->st_gid);//打印群组名
+	printf(" %ld", statbuf->st_blksize);
 	// printf(" %s", ctime(&statbuf->st_ctime));//打印时间(文件最后修改属性的时间)
 	printtime(statbuf->st_ctime);//不换行打印
-	printf(" %s\n", name);//打印文件名
+	// printf(" %s\n", name);//打印文件名
+	puts("");//换行
 }
 
 void printdir(char *dir, int depth)
